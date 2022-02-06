@@ -29,13 +29,13 @@ export default function MovieForm({
     setTitleForm('');
     setDirectorForm('');
     setYearForm('');
-    setColorForm('pink');
+    setColorForm('');
   }
   
   
   return <section>
     <form onSubmit={handleSubmit}>
-      What&apos;s your favorite movie?
+      <h3>What&apos;s your favorite movie?</h3>
       {/* On changing the movie form, the current movie item updates */}
       <div>
         <label>
@@ -57,15 +57,14 @@ export default function MovieForm({
       </div>
       <div>
         <label>
-        Color
+        Pick Poster Color
           <select onChange={e => setColorForm(e.target.value)} required value={colorForm}>
             <option value='pink'>Pink</option>
             <option value='blue'>Blue</option>
             <option value='red'>Red</option>
-            <option value="green">Green</option>
+            <option value='#228b22'>Green</option>
           </select>
         </label>
-
       </div>
       <button>Submit Movie</button>
     </form>
