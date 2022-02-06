@@ -1,11 +1,13 @@
 import React from 'react';
-import Movie from './Movie';
+import MovieItem from './MovieItem';
 
 export default function MovieList({ allMovies }) {
-  return <div>
-    <h2> Welcome to MoviesList</h2>
+  return <div className='movie-list'>
+    <div>
+      <h3> Your Movie Posters</h3>
+    </div>
     {allMovies.map((movie, i) => 
-      <Movie key={`${movie.title}-${i}`} {...movie} />
+      <MovieItem key={`${movie}-${i}`} {...movie} />
     )}
   </div>;
 }
