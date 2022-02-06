@@ -10,7 +10,7 @@ import MovieItem from './Components/Movies/MovieItem';
 function App() {
   // tracks state for `allMovies`,  `filteredMovies  `movieFormYearReleased`, `movieFormDirector`, `movieTitle`, `movieFormColor`; 
   const [allMovies, setAllMovies] = useState([]);
-  // const [filteredMovies, setFilteredMovies] = useState('');
+  const [filteredMovies, setFilteredMovies] = useState('');
  
   const {
     titleForm, setTitleForm,
@@ -24,6 +24,13 @@ function App() {
 
     setAllMovies(updatedMovies);
   }
+
+  function handleFilteredMovies(filter) {
+    const currentFilteredMovies = allMovies.filter(movie => movie.title.includes(filter));
+    setFilteredMovies ? setFilteredMovies(currentFilteredMovies) : setFilteredMovies(filteredMovies); 
+  }
+
+
   return (
     <div className="App">
       <Header />
@@ -46,11 +53,13 @@ function App() {
           year={yearForm}
           color={colorForm}        
         />
-        <div className='filter-movie'>
+        <div className='filter-movie' onChange={e => handleFilteredMovies(e.target.value)}>
           <p>Filter Movies</p>
           <input/>
 
-          <MovieList allMovies={allMovies}/>
+          <MovieList allMovies={
+            filteredMovies.length ? filteredMovies : allMovies
+          }/>
         </div>
       </div>
     </div>
