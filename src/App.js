@@ -34,10 +34,10 @@ function App() {
           yearForm={yearForm}
           setYearForm={setYearForm}
           colorForm={colorForm}
-          setColorForm={setColorForm}    
+          setColorForm={setColorForm} 
+          addMovie={addMovie}   
         />
 
-  
         <Movie 
           title={titleForm}
           director={directorForm}
@@ -48,7 +48,6 @@ function App() {
         <input/>
 
         <MovieList allMovies={allMovies}/>
-
       </div>
     </div>
   );
