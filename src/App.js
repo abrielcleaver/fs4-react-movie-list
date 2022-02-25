@@ -31,7 +31,7 @@ function App() {
   }
 
   function handleDeleteMovie(title) {
-    const index = allMovies.findByIndex(movie => movie.title === title);
+    const index = allMovies.findIndex(movie => movie.title === title);
 
     allMovies.splice(index, 1);
     setFilteredMovies('');
