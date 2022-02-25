@@ -30,6 +30,13 @@ function App() {
     setFilteredMovies ? setFilteredMovies(currentFilteredMovies) : setFilteredMovies(filteredMovies); 
   }
 
+  function handleDeleteMovie(title) {
+    const index = allMovies.findIndex(movie => movie.title === title);
+
+    allMovies.splice(index, 1);
+    setFilteredMovies('');
+    setAllMovies([...allMovies]);
+  }
 
   return (
     <div className="App">
@@ -57,9 +64,14 @@ function App() {
           <p>Filter Movies</p>
           <input/>
 
-          <MovieList allMovies={
-            filteredMovies.length ? filteredMovies : allMovies
-          }/>
+          <MovieList 
+            allMovies={
+              filteredMovies.length 
+                ? filteredMovies 
+                : allMovies
+            } 
+            handleDeleteMovie={handleDeleteMovie}
+          />
         </div>
       </div>
     </div>
